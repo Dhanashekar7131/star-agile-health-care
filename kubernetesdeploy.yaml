@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: Healthcare-app-deploy
+  name: healthcare-app-deploy
   labels:
-    app: Healthcare-app
+    app: healthcare-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: Healthcare-app
+      app: healthcare-app
   template:
     metadata:
       labels:
-        app: Healthcare-app
+        app: healthcare-app
     spec:
       containers:
-      - name: Healthcare-app-container
-        image: dhanashekar/Healthcare-app:new
+      - name: healthcare-app-container
+        image: dhanashekar/healthcare-app:new
         ports:
         - containerPort: 8082
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: Healthcare-app-np-service
+  name: healthcare-app-np-service
   labels:
-    app: Healthcare-app
+    app: healthcare-app
 spec:
   selector:
-    app: Healthcare-app
+    app: healthcare-app
 
   type: NodePort
   ports:
